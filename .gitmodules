@@ -1,0 +1,3 @@
+[submodule "lib/autoEnv"]
+	path = lib/autoEnv
+	url = git://github.com/VRGhost/AutoEnv.git
