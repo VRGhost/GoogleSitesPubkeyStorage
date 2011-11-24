@@ -1,17 +1,25 @@
 import os
 import argparse
 import re
+import logging
 
 # from .
 import lib.autoEnv
 
 ROOT_DIR = os.path.dirname(__file__)
 
+logging.basicConfig()
+_logger = logging.getLogger()
+_logger.setLevel(logging.DEBUG)
+
 def setupEnv():
     _dir = os.path.join(ROOT_DIR, "tmp", "env")
     _env = lib.autoEnv.Environment(_dir, True)
     _env.activate()
     _env.install("gdata")
+
+    logging.basicConfig()
+    logging.getLogger('').setLevel(logging.DEBUG)
 
 def get_cabinet(args):
     import cabinet
@@ -24,7 +32,7 @@ def get_parser():
     _parser = argparse.ArgumentParser(description="Create and update your `authorized_keys` file from a file cabinet on Google Sites.")
     _parser.add_argument("--uri", help="Cabinet URI", required=True)
     _parser.add_argument("--keys-file", help="`authorized_keys` file location",
-        default="~/.ssh/authorized_keys")
+        default=os.path.expanduser("~/.ssh/authorized_keys"))
     return _parser
 
 def get_keyfile_line_tail(siteFile):
