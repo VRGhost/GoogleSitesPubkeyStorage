@@ -1,3 +1,6 @@
 [submodule "lib/autoEnv"]
 	path = lib/autoEnv
 	url = git://github.com/VRGhost/AutoEnv.git
+[submodule "lib/bitbucket"]
+	path = lib/bitbucket
+	url = git://github.com/VRGhost/python-bitbucket.git

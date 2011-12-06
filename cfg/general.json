@@ -1,0 +1,18 @@
+{
+    "ssh-key-source-site": {
+        "site": "www",
+        "domain": "xylotz.com",
+        "path": "/files/ssh-public-keys"
+    },
+
+	"outputs": [
+		{
+			"type":		"AuthorizedKeys",
+			"output_file":	"tst.txt"
+		},
+		{
+			"type":		"Bitbucket",
+			"output_auth_record":	"bitbucket_user"
+		}
+	]
+}

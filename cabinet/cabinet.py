@@ -24,6 +24,12 @@ class FileAuthor(sitesClient.Client):
         super(FileAuthor, self).__init__(client)
         self._rec = record
 
+    def getPropDict(self):
+        return {
+            "name": self.name,
+            "email": self.email,
+        }
+
     def __repr__(self):
         return "<{0} name={1!r} email={2!r}>".format(self.__class__.__name__, self.name, self.email)
 
@@ -61,8 +67,15 @@ class FileAttachment(sitesClient.Client):
 
     def getPropDict(self):
         _out = {}
-        for _attr in ("fullName", "summary", "rev", "published", "author"):
+        for _attr in ("fullName", "summary", "rev", "published", "author", "folder"):
             _val = getattr(self, _attr)
+            try:
+                _val = _val.getPropDict()
+            except AttributeError, _err:
+                if str(_err).endswith("object has no attribute 'getPropDict'"):
+                    pass
+                else:
+                    raise
             _out[_attr] = _val
         return _out
 
@@ -76,6 +89,12 @@ class FileCabinet(sitesClient.Client):
         super(FileCabinet, self).__init__(client)
         assert path.startswith("/")
         self._cabinetPath = path
+
+    def getPropDict(self):
+        return {
+            "uri": self._client.MakeContentFeedUri(),
+            "path": self._cabinetPath,
+        }
 
     def _getThisCabinet(self):
         _ans = self.getFeed(path=self._cabinetPath, kind="filecabinet")
