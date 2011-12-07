@@ -4,3 +4,6 @@
 [submodule "lib/bitbucket"]
 	path = lib/bitbucket
 	url = git://github.com/VRGhost/python-bitbucket.git
+[submodule "lib/github3"]
+	path = lib/github3
+	url = git@github.com:VRGhost/python-github3.git

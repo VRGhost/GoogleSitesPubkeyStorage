@@ -3,5 +3,5 @@
 *.pyc
 *.pyd
 .*
-cfg/auth.json
+cfg/*
 var/*
