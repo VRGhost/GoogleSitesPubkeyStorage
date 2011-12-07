@@ -76,7 +76,7 @@ def run_program():
     _generalCfg = cfgProvider.getGeneralCfg()
 
     _cabinets = _generalCfg["ssh-key-source-site"].getCabinets()
-    if files_updated(_cabinets) or 1:
+    if files_updated(_cabinets):
         sync_keys(_generalCfg.outputs, _cabinets)
         save_cab_status(_cabinets)
 
