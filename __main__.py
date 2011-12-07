@@ -1,9 +1,6 @@
 import os
 import logging
 
-# from .
-import lib.autoEnv
-
 ROOT_DIR = os.path.realpath(os.path.dirname(__file__))
 VAR_DIR = os.path.join(ROOT_DIR, "var")
 CFG_DIR = os.path.join(ROOT_DIR, "cfg")
@@ -13,9 +10,10 @@ _logger = logging.getLogger()
 _logger.setLevel(logging.DEBUG)
 
 def setupEnv():
+    from lib.autoEnv.AutoEnv import Bootstrap
     _dir = os.path.join(VAR_DIR, "env")
-    _env =  lib.autoEnv.Bootstrap(_dir)
-    _env.install("gdata")
+    _env =  Bootstrap(_dir)
+    _env.install("gdata", "requests")
     return _env
 
 def get_cabinet_dump_fname(cabs):

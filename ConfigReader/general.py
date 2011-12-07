@@ -29,6 +29,7 @@ class OutputRecord(base.BaseConfigReader):
         _classes = {
             "AuthorizedKeys": outputAdapters.AutorizedKeys,
             "Bitbucket": outputAdapters.Bitbucket,
+            "Github": outputAdapters.GitHub,
         }
 
         _kw = dict(self._data)
