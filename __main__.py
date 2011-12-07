@@ -7,7 +7,7 @@ CFG_DIR = os.path.join(ROOT_DIR, "cfg")
 
 logging.basicConfig()
 _logger = logging.getLogger()
-_logger.setLevel(logging.DEBUG)
+_logger.setLevel(logging.INFO)
 
 def setupEnv():
     from lib.autoEnv.AutoEnv import Bootstrap
@@ -79,6 +79,7 @@ def run_program():
     if files_updated(_cabinets):
         sync_keys(_generalCfg.outputs, _cabinets)
         save_cab_status(_cabinets)
+        print "SSH keys updated"
 
 if __name__ == "__main__":
     setupEnv()
