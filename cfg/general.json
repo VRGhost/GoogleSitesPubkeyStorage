@@ -13,6 +13,10 @@
 		{
 			"type":		"Bitbucket",
 			"output_auth_record":	"bitbucket_user"
+		},
+		{
+			"type":		"Github",
+			"output_auth_record":	"github_user"
 		}
 	]
 }
