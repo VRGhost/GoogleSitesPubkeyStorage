@@ -8,7 +8,11 @@
 	"outputs": [
 		{
 			"type":		"AuthorizedKeys",
-			"output_file":	"tst.txt"
+			"output_file":	"~/.ssh/authorized_keys"
+		},
+		{
+			"type":		"AuthorizedKeysShell",
+                	"command": "scp {SRC_FILE} ilya@bluebird.xylotz.com:~/.ssh/authorized_keys"
 		},
 		{
 			"type":		"Bitbucket",
