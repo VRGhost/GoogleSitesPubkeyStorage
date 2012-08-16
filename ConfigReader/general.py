@@ -27,7 +27,8 @@ class OutputRecord(base.BaseConfigReader):
     def getOutputObject(self):
         import outputAdapters
         _classes = {
-            "AuthorizedKeys": outputAdapters.AutorizedKeys,
+            "AuthorizedKeys": outputAdapters.AuthorizedKeys,
+            "AuthorizedKeysShell": outputAdapters.AuthorizedKeysShell,
             "Bitbucket": outputAdapters.Bitbucket,
             "Github": outputAdapters.GitHub,
         }

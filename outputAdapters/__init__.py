@@ -1,4 +1,4 @@
-from .authKeys import AutorizedKeys
+from .authKeys import AuthorizedKeys, AuthorizedKeysShell
 from .bitbucket import Bitbucket
 from .github import GitHub
 
